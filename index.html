@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="twitterApp">
+<head>
+    <title>Twitter OAuth.io Example</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <style>
+        .container {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #results .row {
+            margin-top: 15px;
+            margin-bottom: 15px;
+
+        }
+    </style>
+</head>
+<body ng-controller='Auth-Ctrl as authCtrl'>
+    <div class="container">
+    <h1>Twitter OAuth.io</h1>
+    <h4 ng-show="authCtrl.logged_in">Hey there, {{ authCtrl.user.name }}.<h4>
+    <div class="row">
+        <div class="col-xs-12">
+            <button ng-click="authCtrl.signIn()" id="connectButton" type="button" class="btn btn-primary" ng-show="!authCtrl.logged_in">Connect Twitter</button>
+            <button ng-click="authCtrl.signOut()" id="signOut" type="button" class="btn btn-primary" ng-show="authCtrl.logged_in">Sign Out</button>
+            <button ui-sref="mainCtrl.addTweet()" ng-show="authCtrl.logged_in" class="btn btn-info">Tweet</button>                
+        </div>
+    </div>
+    
+    <div ui-view class="row"></div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="third-party/oauth.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="app.js"></script>
+    <script src="components/main/main-controller.js"></script>
+    <script src="components/auth/auth-controller.js"></script>
+    <script src="sections/tweet/tweet-controller.js"></script>
+    <script src="core/server/server-service.js"></script>
+    <script src="core/router/router-service.js"></script>
+</body>
+</html>
