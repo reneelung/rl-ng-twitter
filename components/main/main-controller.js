@@ -6,33 +6,13 @@ angular.module('twitterApp.main-ctrl', [])
 	var vm = this;
 
 	vm.tweets = [];
-	vm.logged_in = server.checkLoggedIn();
 	vm.loading = false;
-	vm.user;
+	
 
-	vm.addTweet = router.goToAddTweet();
-
-	server.initialize();	
-
-	vm.signIn = function()
-	{
-		server.connectTwitter()
-			.then(function(response){	
-				response.me()
-					.then(function(user){
-						vm.user = user;
-					})
-				vm.logged_in = true;				
-			})
-			.then(null, $log.error);
+	vm.addTweet = function() {
+		router.goToAddTweet();
 	}
-
-	vm.signOut = function()
-	{
-		server.clearCache();
-		vm.logged_in = false;
-	}
-
+	
 	vm.refreshTweets = function() {
 		vm.loading = true;
 		server.getLatestTweets()

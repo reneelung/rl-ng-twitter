@@ -5,10 +5,10 @@
             <button ng-click="mainCtrl.signIn()" id="connectButton" type="button" class="btn btn-primary" ng-show="!mainCtrl.logged_in">Connect Twitter</button>
             <button ng-click="mainCtrl.signOut()" id="signOut" type="button" class="btn btn-primary" ng-show="mainCtrl.logged_in">Sign Out</button>
             <button ng-click="mainCtrl.refreshTweets()" ng-disabled="!mainCtrl.logged_in"id="getTimelineButton" type="button" class="btn btn-info">Get My Timeline</button>
-            <button ui-sref="mainCtrl.addTweet()" ng-disabled="!mainCtrl.logged_in"id="getTimelineButton" type="button" class="btn btn-info">Tweet</button>                
+            <button ui-sref="tweet" ng-disabled="!mainCtrl.logged_in"id="getTimelineButton" type="button" class="btn btn-info">Tweet</button>                
         </div>
     </div>
     
-    <div ui-view="actionArea" class="row"></div>
+    <div ui-view class="row"></div>
 
 </div>

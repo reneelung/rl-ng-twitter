@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular.module('twitterApp.server', [])
 
@@ -51,6 +51,17 @@ angular.module('twitterApp.server', [])
 
 		service.signOut = function() {
 			document.cookie = oauthCookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC"
+		}
+
+		service.addTweet = function(data) {
+			var postUrl = '/1.1/statuses/update.json?';
+
+			if (data && data.length <= 140) {
+				data = encodeURIComponent(data);				
+				return oauthResult.post(postUrl + "status=" + data);
+			}
+
+			return false;			
 		}
 
 		return service;

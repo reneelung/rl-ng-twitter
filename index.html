@@ -24,7 +24,7 @@
         <div class="col-xs-12">
             <button ng-click="authCtrl.signIn()" id="connectButton" type="button" class="btn btn-primary" ng-show="!authCtrl.logged_in">Connect Twitter</button>
             <button ng-click="authCtrl.signOut()" id="signOut" type="button" class="btn btn-primary" ng-show="authCtrl.logged_in">Sign Out</button>
-            <button ui-sref="mainCtrl.addTweet()" ng-show="authCtrl.logged_in" class="btn btn-info">Tweet</button>                
+            <button ui-sref="tweet" ng-show="authCtrl.logged_in" class="btn btn-info">Tweet</button>                
         </div>
     </div>
     

@@ -14,7 +14,7 @@ angular.module('twitterApp.auth', [])
 		server.getUser()
 			.then(function(response){
 				vm.user = response;
-				console.log(response);
+				$scope.$apply();
 			});
 	}
 

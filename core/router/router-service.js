@@ -3,12 +3,12 @@
 angular.module('twitterApp.router',['ui.router'])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
-	$urlRouterProvider.otherwise('home');
+	$urlRouterProvider.otherwise('/home');
  	$locationProvider.html5Mode(false);
 
  	$stateProvider
     .state('home', {
-    	url : 'home',
+    	url : '/home',
     	views: {
     		'main' : {
     			controller: 'Main-Ctrl as mainCtrl',
@@ -17,15 +17,18 @@ angular.module('twitterApp.router',['ui.router'])
     	}    	
     })
     .state('tweet', {
-    	url: 'tweet',
-    	templateUrl: 'sections/tweet/tweet-form'
+    	url: '/tweet',
+    	templateUrl: 'sections/tweet/tweet-form',
+    	controller: 'Tweet-Ctrl as tweetCtrl'
     });
 
 })
 .factory('router', function($q, $log, $state){
 	var service = {};
+
 	service.goToAddTweet = function () {
     	$state.go('tweet');
   	};
+	
 	return service;
 });
